@@ -1,0 +1,97 @@
+{
+  "version": "36.0.24",
+  "artifacts": {
+    "example.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "example.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "example": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://739275479148/ap-northeast-1",
+      "properties": {
+        "templateFile": "example.template.json",
+        "terminationProtection": false,
+        "tags": {
+          "Environment": "Development"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::739275479148:role/cdk-hnb659fds-deploy-role-739275479148-ap-northeast-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::739275479148:role/cdk-hnb659fds-cfn-exec-role-739275479148-ap-northeast-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-739275479148-ap-northeast-1/c7274b78c1ef517a589a6261ea1eb9c5d594149ba677d3cfe73f15e9eb4dee59.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "example.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::739275479148:role/cdk-hnb659fds-lookup-role-739275479148-ap-northeast-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "example.assets"
+      ],
+      "metadata": {
+        "/example": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "Environment",
+                "Value": "Development"
+              }
+            ]
+          }
+        ],
+        "/example/DataBucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DataBucket"
+          }
+        ],
+        "/example/BucketName": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketName"
+          }
+        ],
+        "/example/QuickSightS3AccessRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QuickSightS3AccessRole904CF364"
+          }
+        ],
+        "/example/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/example/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/example/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "example"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
